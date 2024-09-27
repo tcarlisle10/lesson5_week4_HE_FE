@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styling </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        #box:hover {
+            background-color: deepskyblue;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: lightgreen;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: green;
+            color: white;
+        }
+        p {
+            margin: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Styling </h1>
+<div id="box" onclick="changeColor()">Click me to change color</div>
+
+<button onclick="changeBoxSize()">Change Box Size</button>
+<button onclick="resetBox()">Reset Box</button>
+
+<p id="message"></p>
+
+<script>
+    
+    function changeColor() {
+        const box = document.getElementById('box');
+        // Generate a random color
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        box.style.backgroundColor = randomColor;
+    }
+
+    
+    function changeBoxSize() {
+        const box = document.getElementById('box');
+        box.style.width = '300px';
+        box.style.height = '300px';
+        document.getElementById('message').textContent = 'Box size changed!';
+    }
+
+    
+    function resetBox() {
+        const box = document.getElementById('box');
+        box.style.width = '200px';
+        box.style.height = '200px';
+        box.style.backgroundColor = 'lightblue';
+        document.getElementById('message').textContent = 'Box reset to original size and color.';
+    }
+</script>
+
+</body>
+</html>
